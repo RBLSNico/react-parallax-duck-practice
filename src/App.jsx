@@ -7,10 +7,21 @@ import sky from './assets/sky.png'
 import alter from './assets/larger.png'
 import cloud from './assets/cloud.png'
 import duck from './assets/XOsX.gif'
+import ghost from './assets/Animation-Ghost-GIF-unscreen.gif'
 // import './App.css'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
 function App() {
+
+  const [count, setCount] = useState(0);
+
+  const increase = () => {
+    setCount(count + 1);
+  }
+
+  const decrease = () => {
+    setCount(count - 1);
+  }
 
   return (
     <Parallax pages={5}>
@@ -35,7 +46,7 @@ function App() {
       </ParallaxLayer>
 
       <ParallaxLayer
-        sticky={{ start: 0.2, end: 4.0 }}
+        sticky={{ start: 0.2, end: 3.5 }}
       >
         <img
           alt="Hot Air Balloon"
@@ -75,19 +86,36 @@ function App() {
         speed={2}
         onClick={() => ref.current.scrollTo(0)}
       >
-        <h1>You Made It!</h1>
-        <img
-          alt="Duck"
-          style={{
-            display: 'block', // Set to 'block' to remove extra space beneath inline images
-            margin: 'auto', // Center horizontally
-            maxWidth: '100%', // Make sure the image doesn't exceed the container width
-            maxHeight: 'auto', // Make sure the image doesn't exceed the container height
-          }}
-          src={duck}
-        />
+        <h1>The count is {count} </h1>
+        <div className='images'>
+          <a href='#' onClick={increase}>
+            <img
+              alt="Duck"
+              style={{
+                margin: 'auto', // Center horizontally
+                maxWidth: '100%', // Make sure the image doesn't exceed the container width
+                maxHeight: 'auto', // Make sure the image doesn't exceed the container height
+              }}
+              src={duck}
+            />
+          </a>
+          <a href='#' onClick={decrease}>
+            <img
+              alt="Ghost"
+              style={{
+                margin: 'auto', // Center horizontally
+                maxWidth: '100%', // Make sure the image doesn't exceed the container width
+                maxHeight: 'auto', // Make sure the image doesn't exceed the container height
+              }}
+              src={ghost}
+            />
+          </a>
+        </div>
       </ParallaxLayer>
     </Parallax>
+
+
+
   )
 }
 
