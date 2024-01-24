@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import bgimg from './assets/bg.jpg'
-import balloon from './assets/balloon-unscreen.gif'
-import sky from './assets/sky.png'
-import alter from './assets/larger.png'
+import balloon from './assets/hello-travel.gif'
+import bg from './assets/pengu-adventures.png'
 import cloud from './assets/cloud.png'
-import duck from './assets/XOsX.gif'
-import ghost from './assets/Animation-Ghost-GIF-unscreen.gif'
-// import './App.css'
+import p1 from './assets/food-hungry.gif'
+import p2 from './assets/tragic-qq.gif'
+import p3 from './assets/pudgyman-superman.gif'
+import p4 from './assets/omg-shocked.gif'
+import p5 from './assets/bored-penguin.gif'
+import './App.css'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import Navbar from './components/Navbar'
 
 function App() {
 
@@ -27,93 +29,111 @@ function App() {
     <Parallax pages={5}>
       <ParallaxLayer
         offset={0}
-        factor={10}
+        factor={9.5}
         speed={1}
         style={{
-          backgroundImage: `url(${alter})`,
+          backgroundImage: `url(${bg})`,
           backgroundSize: 'cover',
+          filter: 'blur(4px)',
         }}
-
       >
-
       </ParallaxLayer>
 
       <ParallaxLayer
         offset={1}
         speed={0.5}
+        factor={0}
       >
         {/* <h1>Hi, I'm Nico!</h1> */}
       </ParallaxLayer>
 
       <ParallaxLayer
-        sticky={{ start: 0.2, end: 3.5 }}
+        factor={0}
+        sticky={{ start: 0.2, end: 2.7 }}
       >
         <img
-          alt="Hot Air Balloon"
+          alt="The Travelling Penguin"
           style={{
-            display: 'block', // Set to 'block' to remove extra space beneath inline images
-            margin: 'auto', // Center horizontally
-            minWidth: '35rem', // Make sure the image doesn't exceed the container width
-            maxHeight: 'auto', // Make sure the image doesn't exceed the container height
+            display: 'block',
+            margin: 'auto',
+            minWidth: '30rem',
+            maxHeight: 'auto',
           }}
           src={balloon}
         />
       </ParallaxLayer>
 
       <ParallaxLayer
-        sticky={{ start: 1.8, end: 2.0 }}
+        factor={0}
+        offset={0}
+        sticky={{ start: 0.8, end: 1.0 }}
       >
         <img
           alt="Cloud"
           style={{
-            display: 'block', // Set to 'block' to remove extra space beneath inline images
-            margin: 'auto', // Center horizontally
-            maxWidth: '100%', // Make sure the image doesn't exceed the container width
-            maxHeight: 'auto', // Make sure the image doesn't exceed the container height
+            display: 'block',
+            margin: 'auto',
+            maxWidth: '100%',
+            maxHeight: 'auto',
           }}
           src={cloud}
         />
       </ParallaxLayer>
       <ParallaxLayer
-        offset={3}
-        speed={2}
+        factor={0}
+        offset={0}
+        speed={1}
+        sticky={{ start: 1.8, end: 2.2 }}
         onClick={() => ref.current.scrollTo(0)}
       >
-        <h1>Hey Bean!</h1>
+        <img
+          alt="P4"
+          style={{
+            margin: 'auto',
+            maxWidth: '100%',
+            maxHeight: 'auto',
+          }}
+          src={p4}
+        />
       </ParallaxLayer>
       <ParallaxLayer
+        factor={0}
         offset={4}
-        speed={2}
+        speed={0.5}
         onClick={() => ref.current.scrollTo(0)}
       >
-        <h1>The count is {count} </h1>
+        {/* <h1>The count is {count} </h1> */}
         <div className='images'>
-          <a href='#' onClick={increase}>
-            <img
-              alt="Duck"
-              style={{
-                margin: 'auto', // Center horizontally
-                maxWidth: '100%', // Make sure the image doesn't exceed the container width
-                maxHeight: 'auto', // Make sure the image doesn't exceed the container height
-              }}
-              src={duck}
-            />
-          </a>
-          <a href='#' onClick={decrease}>
-            <img
-              alt="Ghost"
-              style={{
-                margin: 'auto', // Center horizontally
-                maxWidth: '100%', // Make sure the image doesn't exceed the container width
-                maxHeight: 'auto', // Make sure the image doesn't exceed the container height
-              }}
-              src={ghost}
-            />
-          </a>
+          <img
+            alt="P1"
+            style={{
+              margin: 'auto',
+              maxWidth: '100%',
+              maxHeight: 'auto',
+            }}
+            src={p1}
+          />
+          <img
+            alt="P2"
+            style={{
+              margin: 'auto',
+              maxWidth: '100%',
+              maxHeight: 'auto',
+            }}
+            src={p2}
+          />
+          <img
+            alt="P3"
+            style={{
+              margin: 'auto',
+              maxWidth: '100%',
+              maxHeight: 'auto',
+            }}
+            src={p3}
+          />
         </div>
       </ParallaxLayer>
     </Parallax>
-
 
 
   )
